@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Back</title>
+    <!-- Підключення Font Awesome для іконок -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="stlogin.css">
+</head>
+<body>
+
+    <div class="main-card">
+        <div class="form-side welcome-side">
+            <!-- Обгортка для інтерактивного сердечка з текстом -->
+            <div class="heart-container" onclick="this.classList.toggle('active')">
+                <div class="heart-icon">
+                    <i class="fas fa-heart"></i>
+                </div>
+                <span class="love-popup-text">Кохаю тебе! 💖</span>
+            </div>
+            
+            <h2>Отакої, дівчино! ✨</h2>
+            
+            <p class="welcome-text">
+                Для вас вже було створено особистий акаунт
+            </p>
+            <p class="welcome-text">
+                <strong>7 місяців тому</strong> 💖
+                <span class="date-subtext">30.03.2026</span>
+            </p>
+
+            <a href="index.html" class="signup-btn welcome-btn">Перейти до входу</a>
+        </div>
+
+        <div class="image-side">
+            <div class="image-container">
+                <img src="https://s.widget-club.com/images/YyiR86zpwIMIfrCZoSs4ulVD9RF3/392fd542d20d8c39aa20ab1d192e0026/MXmLQq5SsG08nT7NcbFu.jpg?q=70&w=500" alt="Romantic Night">
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

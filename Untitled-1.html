@@ -1,0 +1,111 @@
+<div class="photo-page active" id="photoPage1">
+            <div class="photo-container">
+              <img src="https://cdn.discordapp.com/attachments/1549376815435485315/1549457581540384879/image.png?ex=6aaac452&is=6aa972d2&hm=f033180705c4458c9791bedfe739bc654d75c98cf638de446533d848b314e023&" alt="Diana Photo 1">
+            </div>
+          </div>
+
+          <!-- ФОТО ДЛЯ 2 СТОРІНКИ -->
+          <div class="photo-page" id="photoPage2">
+            <div class="photo-container">
+              <img src="https://cdn.discordapp.com/attachments/1549376815435485315/1549460999554338956/-2147483648_-219303.jpg?ex=6aaac781&is=6aa97601&hm=de889e317ce5e32f870cbb816039db323f28a00c89a2a80e6c0603190c6abb2a&" alt="Diana Photo 2">
+            </div>
+          </div>
+
+          <!-- ФОТО ДЛЯ 3 СТОРІНКИ -->
+          <div class="photo-page" id="photoPage3">
+            <div class="photo-container">
+              <img src="https://cdn.discordapp.com/attachments/1549376815435485315/1549460999990419456/-2147483648_-219301.jpg?ex=6aaac781&is=6aa97601&hm=7a236f6847b29933647cec9dcc0c60c1c43dcb68909245a41ba5392c7615c248&" alt="Diana Photo 3">
+            </div>
+          </div>
+
+          
+
+
+
+
+          <div class="cover-back">
+          <div class="photo-page active" id="photoPage1">
+            <div class="photo-container">
+              <img src="https://cdn.discordapp.com/attachments/1549376815435485315/1549457581540384879/image.png?ex=6aaac452&is=6aa972d2&hm=f033180705c4458c9791bedfe739bc654d75c98cf638de446533d848b314e023&" alt="Diana Photo 1">
+            </div>
+          </div>
+
+          <div class="photo-page" id="photoPage2">
+            <div class="photo-container">
+              <img src="https://cdn.discordapp.com/attachments/1549376815435485315/1549460999554338956/-2147483648_-219303.jpg?ex=6aaac781&is=6aa97601&hm=de889e317ce5e32f870cbb816039db323f28a00c89a2a80e6c0603190c6abb2a&" alt="Diana Photo 2">
+            </div>
+          </div>
+
+          <div class="photo-page" id="photoPage3">
+            <div class="photo-container">
+              <img src="https://cdn.discordapp.com/attachments/1549376815435485315/1549460999990419456/-2147483648_-219301.jpg?ex=6aaac781&is=6aa97601&hm=7a236f6847b29933647cec9dcc0c60c1c43dcb68909245a41ba5392c7615c248&" alt="Diana Photo 3">
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <!-- Хеллоуїнський сюрприз у самому низу сайту -->
+  <div class="halloween-footer-surprise">
+    <button class="pumpkin-btn" id="pumpkinBtn" title="Натисни мене!">🎃</button>
+    <div class="halloween-text" id="halloweenText">ого а, що це таке? Нужмо, нажми!</div>
+  </div>
+
+  <script src="main.js"></script>
+  <script>
+    // Логіка кліків по гарбузику внизу
+    const pumpkinBtn = document.getElementById('pumpkinBtn');
+    const halloweenText = document.getElementById('halloweenText');
+    let clickCount = 0;
+
+    pumpkinBtn.addEventListener('click', () => {
+      clickCount++;
+
+      if (clickCount === 1) {
+        // Перший клік: показуємо текст
+        halloweenText.classList.add('show');
+      } else {
+        // Другий та наступні кліки: перекидаємо на іншу сторінку (наприклад, cake.html)
+        window.location.href = 'cake.html'; 
+      }
+    });
+  </script>
+
+
+
+
+
+
+
+<!--ВАЖЛИВО ЦЕ СТАРИЙ СТИЛЬ БЫОГРАФІЇ САЙТУ-->
+/* Контентні секції */
+.content-section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 100px 20px 60px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 4px;
+  background: #ff4757;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.info-card {
+  background: #1e1e1e;
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}

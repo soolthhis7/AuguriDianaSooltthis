@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SLTh7 - Персональний Сайт</title>
+  <link rel="stylesheet" href="style1.css">
+  <style>
+    /* Повноцінний футер */
+    .site-footer {
+      background: #09090b;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 50px 20px 30px 20px;
+      margin-top: 80px;
+      color: #a0a0a0;
+      font-size: 0.95rem;
+    }
+
+    .footer-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-col h4 {
+      color: #ffffff;
+      font-size: 1.1rem;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .footer-col p {
+      line-height: 1.5;
+      color: #888888;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: #a0a0a0;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #ff4757;
+    }
+
+    /* Нижній рядок футера з хеллоуїнським секретом */
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding-top: 25px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      text-align: center;
+    }
+
+    .pumpkin-surprise {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .pumpkin-btn {
+      background: none;
+      border: none;
+      font-size: 32px;
+      cursor: pointer;
+      user-select: none;
+      filter: drop-shadow(0 0 10px rgba(255, 107, 0, 0.4));
+      transition: transform 0.3s ease;
+      animation: pumpkinBounce 2s infinite ease-in-out;
+    }
+
+    .pumpkin-btn:hover {
+      transform: scale(1.2) rotate(15deg);
+    }
+
+    .halloween-text {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #ff9f43;
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: all 0.4s ease;
+      pointer-events: none;
+      text-shadow: 0 0 8px rgba(255, 159, 67, 0.4);
+    }
+
+    .halloween-text.show {
+      opacity: 1;
+      transform: translateX(0);
+      animation: blinkText 1.5s infinite alternate;
+    }
+
+    @keyframes pumpkinBounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-4px); }
+    }
+
+    @keyframes blinkText {
+      0% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+
+    /* Адаптивність для мобільних */
+    @media (max-width: 768px) {
+      .footer-container {
+        grid-template-columns: 1fr;
+        gap: 25px;
+      }
+      .footer-bottom {
+        flex-direction: column;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Напівпрозоре меню зверху -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="nav-logo">
+        <img src="https://cdn.discordapp.com/attachments/1549376815435485315/1549893053181853756/1789593681100.png?ex=6aad02a3&is=6aabb123&hm=d9aec3e3b814a9aa5d45c59f458fffaa4cc07ce6d3c16cce81463d8de960c7d1&" alt="SLTh7 Logo">
+      </a>
+      <ul class="nav-links">
+        <li><a href="index1.html">Головна</a></li>
+        <li><a href="#hero">Огляд</a></li>
+        <li><a href="#biography">Біографія</a></li>
+        <li><a href="index2.html">Галерея фото</a></li>
+        <li><a href="#gallery">Галерея творчості</a></li>
+        <li><a href="#details">Детальна інформація</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- 1. Головна секція на весь екран (Hero) -->
+  <header class="hero" id="hero">
+    <h1>Ласкаво просимо, Діано!</h1>
+    <p></p>
+    <a href="#gallery" class="btn">Дивитися галерею</a>
+  </header>
+
+  <!-- 2. Біографія -->
+  <section class="content-section" id="biography">
+    <h2 class="section-title">Біографія</h2>
+    <div class="info-card">
+      <p>Вітаємо на сайті! Тут розміщена коротка інформація про мене, мої проєкти та захоплення. Гортайте нижче, щоб переглянути відеогалерею.</p>
+    </div>
+  </section>
+
+  <!-- 3. Відеогалерея (Одне вікно, 4 відео) -->
+  <section class="content-section" id="gallery">
+    <h2 class="section-title">Галерея творчих едітів</h2>
+
+    <div class="video-slider-container">
+      <button class="nav-btn prev-btn" id="prevBtn" aria-label="Попереднє відео">&#10094;</button>
+      <button class="nav-btn next-btn" id="nextBtn" aria-label="Наступне відео">&#10095;</button>
+
+      <div class="video-player-wrapper">
+        <video id="videoPlayer" controls allowfullscreen>
+          <source src="" type="video/mp4">
+        </video>
+      </div>
+
+      <div class="video-info">
+        <h3 id="videoTitle">Завантаження...</h3>
+        <div class="video-counter" id="videoCounter">Відео 1 з 4</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Детальна інформація -->
+  <section class="content-section" id="details">
+    <h2 class="section-title">Детальна інформація</h2>
+    <div class="info-card">
+      <p>У цьому розділі можна вказувати <a href="cake.html">додаткові</a> специфікації, посилання на портфоліо чи будь-які додаткові дані.</p>
+    </div>
+  </section>
+
+  <!-- Повноцінний футер сайту -->
+  <footer class="site-footer">
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Про проєкт</h4>
+        <p>Персональний вебпростір, створений для збереження найкращих спогадів, творчих едітів та атмосферних моментів.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Швидка навігація</h4>
+        <ul class="footer-links">
+          <li><a href="#hero">Наверх</a></li>
+          <li><a href="#biography">Біографія</a></li>
+          <li><a href="#gallery">Галерея</a></li>
+          <li><a href="cake.html">Святковий сюрприз</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Контакти & GitHub</h4>
+        <p>Розроблено за допомогою сучасних вебтехнологій та чистого CSS/JS.</p>
+      </div>
+    </div>
+
+    <!-- Нижня частина з копірайтом та інтерактивним гарбузиком -->
+    <div class="footer-bottom">
+      <p>&copy; 2026 SLTh7. Усі права захищено.</p>
+      
+      <!-- Хеллоуїнський гарбузик з ефектом -->
+      <div class="pumpkin-surprise">
+        <button class="pumpkin-btn" id="pumpkinBtn" title="Натисни мене!">🎃</button>
+        <span class="halloween-text" id="halloweenText">ого а, що це таке? Нужмо, нажми!</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    // Логіка кліків по гарбузику у футері
+    const pumpkinBtn = document.getElementById('pumpkinBtn');
+    const halloweenText = document.getElementById('halloweenText');
+    let clickCount = 0;
+
+    pumpkinBtn.addEventListener('click', () => {
+      clickCount++;
+
+      if (clickCount === 1) {
+        // Перший клік: показуємо миготливий текст
+        halloweenText.classList.add('show');
+      } else {
+        // Другий та наступні кліки: перехід на cake.html
+        window.location.href = 'cake.html'; 
+      }
+    });
+  </script>
+</body>
+</html>

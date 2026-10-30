@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Modern Sign Up</title>
+    <!-- Підключення іконок Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-card">
+        <div class="form-side">
+            <h1>Sign Up</h1>
+
+            <div class="input-field" id="usernameField">
+                <label>User name</label>
+                <input type="text" id="username">
+                <i class="fas fa-user"></i>
+            </div>
+
+            <div class="input-field" id="emailField">
+                <label>Email</label>
+                <input type="email" id="email">
+                <i class="fas fa-envelope"></i>
+            </div>
+
+            <div class="input-field" id="passwordField">
+                <label>Password</label>
+                <input type="password" id="password">
+                <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+            </div>
+            
+            <!-- Текст помилки -->
+            <small class="error-text" id="passwordError">Мінімум 8 символів</small>
+
+            <button class="signup-btn" id="signupBtn">Sign Up</button>
+            
+            <p class="footer-text">
+                Already Have Account? <a href="login.html" style="text-decoration: none; color: inherit; font-weight: bold;">Login</a>
+            </p>
+        </div>
+
+        <div class="image-side">
+            <div class="image-container">
+                <img src="https://s.widget-club.com/images/YyiR86zpwIMIfrCZoSs4ulVD9RF3/392fd542d20d8c39aa20ab1d192e0026/MXmLQq5SsG08nT7NcbFu.jpg?q=70&w=500" alt="Cactus">
+            </div>
+        </div>
+    </div>
+    
+    <a href="index0.html" class="admin-btn"><i class="fas fa-user-shield"></i> Admin</a>
+
+    <!-- Скрипт перевірки та червоної підсвітки -->
+    <script>
+    const username = document.getElementById('username');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const signupBtn = document.getElementById('signupBtn');
+    const passwordError = document.getElementById('passwordError');
+    const togglePassword = document.getElementById('togglePassword');
+
+    const usernameField = document.getElementById('usernameField');
+    const emailField = document.getElementById('emailField');
+    const passwordField = document.getElementById('passwordField');
+
+    // **Дані для перевірки**
+    const SECRET_USERNAME = "Diana_Oleksynn"; 
+    const SECRET_EMAIL = "dinaqwnn2010@gmail.com";     
+    const SECRET_PASSWORD = "08112010"; 
+
+    // Функція для скидання червоної підсвітки при введенні нового символу
+    function clearErrors() {
+        usernameField.classList.remove('error-input');
+        emailField.classList.remove('error-input');
+        passwordField.classList.remove('error-input');
+        passwordError.classList.remove('show');
+    }
+
+    username.addEventListener('input', clearErrors);
+    email.addEventListener('input', clearErrors);
+    password.addEventListener('input', clearErrors);
+
+    // Перемикання видимості пароля
+    togglePassword.addEventListener('click', function() {
+        const isPassword = password.getAttribute('type') === 'password';
+        password.setAttribute('type', isPassword ? 'text' : 'password');
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+
+    // Логіка перевірки при натисканні на кнопку "Sign Up"
+    signupBtn.addEventListener('click', function() {
+        const userValue = username.value.trim();
+        const emailValue = email.value.trim();
+        const passValue = password.value;
+
+        clearErrors();
+
+        // 1. Перевірка на заповнені поля
+        if (userValue === '' || emailValue === '' || passValue.trim() === '') {
+            passwordError.textContent = "Будь ласка, заповніть усі поля!";
+            passwordError.classList.add('show');
+            if (userValue === '') usernameField.classList.add('error-input');
+            if (emailValue === '') emailField.classList.add('error-input');
+            if (passValue.trim() === '') passwordField.classList.add('error-input');
+            return;
+        }
+
+        // 2. Перевірка юзернейму
+        if (userValue !== SECRET_USERNAME) {
+            passwordError.textContent = "Неправильний юзернейм!";
+            passwordError.classList.add('show');
+            usernameField.classList.add('error-input');
+            return;
+        }
+
+        // 3. Перевірка Gmail
+        if (emailValue !== SECRET_EMAIL) {
+            passwordError.textContent = "Неправильний Gmail!";
+            passwordError.classList.add('show');
+            emailField.classList.add('error-input');
+            return;
+        }
+
+        // 4. Перевірка довжини пароля
+        if (passValue.length < 8) {
+            passwordError.textContent = "Мінімум 8 символів";
+            passwordError.classList.add('show');
+            passwordField.classList.add('error-input');
+            return;
+        }
+
+        // 5. Перевірка пароля
+        if (passValue !== SECRET_PASSWORD) {
+            passwordError.textContent = "Неправильний пароль!";
+            passwordError.classList.add('show');
+            passwordField.classList.add('error-input');
+            return;
+        }
+
+        // Успішно
+        window.location.href = 'index0.html';
+    });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

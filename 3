@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Modern Sign Up</title>
+    <!-- Підключення іконок Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="main-card">
+        <div class="form-side">
+            <h1>Sign Up</h1>
+
+            <div class="input-field">
+                <label>User name</label>
+                <input type="text" id="username">
+                <i class="fas fa-user"></i>
+            </div>
+
+            <div class="input-field">
+                <label>Email</label>
+                <input type="email" id="email">
+                <i class="fas fa-envelope"></i>
+            </div>
+
+            <div class="input-field">
+                <label>Password</label>
+                <input type="password" id="password">
+                <i class="fas fa-lock"></i>
+                <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+            </div>
+            <!-- Текст помилки, який з'являється при натисканні кнопки -->
+            <small class="error-text" id="passwordError">Мінімум 8 символів</small>
+
+            <!-- Кнопка тепер завжди активна, вся перевірка йде при кліку -->
+            <button class="signup-btn" id="signupBtn">Sign Up</button>
+            
+            <p class="footer-text">
+                Already Have Account? <a href="login.html" style="text-decoration: none; color: inherit; font-weight: bold;">Login</a>
+            </p>
+        </div>
+
+        <div class="image-side">
+            <div class="image-container">
+                <img src="https://s.widget-club.com/images/YyiR86zpwIMIfrCZoSs4ulVD9RF3/392fd542d20d8c39aa20ab1d192e0026/MXmLQq5SsG08nT7NcbFu.jpg?q=70&w=500" alt="Cactus">
+            </div>
+        </div>
+    </div>
+
+    <!-- Скрипт перевірки при натисканні на кнопку -->
+    <script>
+    const username = document.getElementById('username');
+    const email = document.getElementById('email');
+    const password = document.getElementById('password');
+    const signupBtn = document.getElementById('signupBtn');
+    const passwordError = document.getElementById('passwordError');
+    const togglePassword = document.getElementById('togglePassword');
+
+    // **Вкажи тут свій секретний пароль**
+    const SECRET_PASSWORD = "08112010"; 
+
+    // Перемикання видимості пароля
+    togglePassword.addEventListener('click', function() {
+        const isPassword = password.getAttribute('type') === 'password';
+        password.setAttribute('type', isPassword ? 'text' : 'password');
+        this.classList.toggle('fa-eye');
+        this.classList.toggle('fa-eye-slash');
+    });
+
+    // Логіка перевірки при натисканні на кнопку "Sign Up"
+    signupBtn.addEventListener('click', function() {
+        const passValue = password.value;
+
+        // 1. Перевірка на заповнені поля (опціонально, але корисно)
+        if (username.value.trim() === '' || email.value.trim() === '' || passValue.trim() === '') {
+            passwordError.textContent = "Будь ласка, заповніть усі поля!";
+            passwordError.classList.add('show');
+            return;
+        }
+
+        // 2. Перевірка довжини пароля (менше 8 символів)
+        if (passValue.length < 8) {
+            passwordError.textContent = "Мінімум 8 символів";
+            passwordError.classList.add('show');
+            return;
+        }
+
+        // 3. Перевірка чи пароль правильний
+        if (passValue !== SECRET_PASSWORD) {
+            passwordError.textContent = "Неправильний пароль!";
+            passwordError.classList.add('show');
+            return;
+        }
+
+        // Якщо все успішно — ховаємо помилку і перенаправляємо
+        passwordError.classList.remove('show');
+        window.location.href = 'index1.html';
+    });
+</script>
+
+</body>
+</html>
+
+//СТАРИЙ ВХІД ТІЛЬКИ З ПЕРЕВІРКОЮ ПАРОЛЯ
+
+.toggle-password {
+    position: absolute;
+    right: 15px; /* підлаштуйте під ваш дизайн, щоб не накладалось на fa-lock */
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
